@@ -5,7 +5,14 @@ SRC =	main.c \
 
 OBJ = ${SRC:%.c=%.o}
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -pthread
+
+ifeq ($(DEBUG),1)
+FLAGS += -g3 -fsanitize=address
+endif
+ifeq ($(DEBUG),2)
+FLAGS += -g3 -fsanitize=thread
+endif
 
 %.o: %.c
 	gcc -c -o $@ $< $(FLAGS)

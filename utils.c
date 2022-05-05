@@ -6,7 +6,7 @@
 /*   By: lsmit <lsmit@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/03 21:37:01 by lsmit         #+#    #+#                 */
-/*   Updated: 2022/05/03 21:46:21 by lsmit         ########   odam.nl         */
+/*   Updated: 2022/05/05 20:58:24 by lsmit         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_putnbr(unsigned long n)
 {
-	char print[1];
+	char	print[1];
 
 	if (n >= 10)
 		ft_putnbr(n / 10);
 	*print = n % 10 + 48;
-	write(1, print, 1);
+	printf(print, 1);
 }
 
-int		ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	int			i;
 	long long	res;
@@ -47,7 +47,7 @@ int		ft_atoi(char *str)
 	return ((int)res * n);
 }
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);
@@ -55,7 +55,7 @@ int		ft_isdigit(int c)
 		return (0);
 }
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
