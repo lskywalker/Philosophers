@@ -6,7 +6,7 @@
 /*   By: lsmit <lsmit@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/02 18:44:59 by lsmit         #+#    #+#                 */
-/*   Updated: 2022/05/05 20:36:36 by lsmit         ########   odam.nl         */
+/*   Updated: 2022/05/11 18:48:54 by lsmit         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,29 @@ typedef struct s_philo
 }				t_philo;
 
 // LIBFT
-void	ft_putnbr(unsigned long n);
-int		ft_atoi(char *str);
-int		ft_isdigit(int c);
-int		ft_strlen(char *str);
+void			ft_putnbr(unsigned long n);
+int				ft_atoi(char *str);
+int				ft_isdigit(int c);
+int				ft_strlen(char *str);
+
+// INIT
+int				mutex_init(t_data *data, unsigned int i);
+int				init_data(char **argv, t_data *data);
+int				philo_init(t_philo *philo, int id, t_data *data);
+
+// ALGORITHM
+void			philo_eat(t_philo *philo);
+void			philo_start(void *phil);
+void			monitoring(t_philo *philo);
+bool			forks(t_philo *philo, int left_fork, int right_fork);
+void			set_table(t_data *data, pthread_t *threads, t_philo *philo);
+
+// UTILS
+unsigned long	get_time(void);
+void			go_sleep(unsigned long time);
+void			philo_sleep(t_philo *philo);
+void			join_threads(pthread_t *threads, int i);
+bool			check_dead(t_data *data);
+void			philo_print(t_philo *philo, char *str, bool state);
 
 #endif

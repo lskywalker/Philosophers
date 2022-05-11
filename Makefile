@@ -1,7 +1,10 @@
 NAME = philo
 
 SRC =	main.c \
-		utils.c
+		init.c \
+		algorithm.c \
+		utils.c \
+		utils2.c
 
 OBJ = ${SRC:%.c=%.o}
 

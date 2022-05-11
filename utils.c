@@ -6,11 +6,19 @@
 /*   By: lsmit <lsmit@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/05/03 21:37:01 by lsmit         #+#    #+#                 */
-/*   Updated: 2022/05/05 20:58:24 by lsmit         ########   odam.nl         */
+/*   Updated: 2022/05/11 18:37:25 by lsmit         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+unsigned long	get_time(void)
+{
+	struct timeval	current_time;
+
+	gettimeofday(&current_time, NULL);
+	return ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
+}
 
 void	ft_putnbr(unsigned long n)
 {
